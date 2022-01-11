@@ -1,1 +1,32 @@
-// JSON format bug report
+{ TotalBugs: T,  
+ // T is the total number of bug reports 
+ SrcFiles: [    
+   // This is an array of bug-related source files    
+   // Then, each file has an index, e.g., 0, 1, 2.    
+   // In the following bug repots, we will use the index instead of the source file name    
+   // to save space.   
+ ],  
+ BugTypes: [  // The following bug reports are grouped by bug types 
+   { 
+   // A bug type is an object with following fields. 
+     Name: XXX,        // name of the bug type 
+     Description: YYY,    // a description of the bug type 
+     TotalReports: N,      // the total number of bug reports of this type 
+     Reports: [ 
+       { ReportChecker: XXX,   // the name of the checker that reports the bug 
+        Score: M,             // a score of this bug, the higher, the more it is like a real bug    
+        DiagSteps: [ 
+          // Each bug report consists of several steps, 
+          // Each step is an object, explained as below 
+          { 
+            File: ID      // the index of the source file 
+            Line: l       // the line number in the source file 
+            Tip: XXX    // a readable tips 
+          },
+          …  // more steps 
+        ],
+       },
+       …  // more reports 
+       },
+     ]
+   } 
